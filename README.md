@@ -1,130 +1,164 @@
-
 <p align="center">
-  <pre>
-╔══════════╗
-║ ║
-║ ███████╗██╗ ██╗███╗ ██╗ ██████╗ ██████╗ █████╗ ██████╗ ║
-║ ██╔════╝██║ ██║████╗ ██║██╔════╝ ██╔══██╗██╔══██╗██╔══██╗ ║
-║ ███████╗██║ ██║██╔██╗ ██║██║ ███╗██████╔╝███████║██████╔╝ ║
-║ ╚════██║██║ ██║██║╚██╗██║██║ ██║██╔══██╗██╔══██║██╔══██╗ ║
-║ ███████║╚██████╔╝██║ ╚████║╚██████╔╝██║ ██║██║ ██║██████╔╝ ║
-║ ╚══════╝ ╚═════╝ ╚═╝ ╚═══╝ ╚═════╝ ╚═╝ ╚═╝╚═╝ ╚═╝╚═════╝ ║
-║ ║
-║ SunGrad v1.0.0 ║
-║ Zero Library Bulk Downloader ║
-║ Download Anything, Anywhere ║
-║ ║
-╚══════════╝
-  </pre>
+  <img src="ascii-text-art (1).png" width="100%" alt="CodeSungrab Banner">
+</p><h1 align="center">
+  🚀 CodeSungrab
+</h1><p align="center">
+  <b>A Lightweight Terminal-Based Video Downloader</b>
+</p><p align="center">
+  <code>Fast</code> • <code>Simple</code> • <code>Developer Friendly</code> • <code>Termux/Linux</code>
+</p>---
+
+<h2>📌 About CodeSungrab</h2><p>
+<b>CodeSungrab</b> is a lightweight and powerful 
+<b>command-line video downloader</b> built with Python.
+</p><p>
+It is designed for developers and Linux/Termux users who want a simple,
+clean and fast terminal-based downloading experience.
+</p>---
+
+<h2>🎯 Objective</h2><ul>
+<li>Build a simple terminal downloader</li>
+<li>Create a lightweight developer utility</li>
+<li>Provide easy installation for Termux/Linux</li>
+<li>Keep the tool fast and beginner friendly</li>
+</ul>---
+
+<h2>✨ Features</h2><table>
+<tr>
+<td>⚡ Fast Download</td>
+<td>📺 YouTube Support</td>
+</tr><tr>
+<td>🎵 MP3 Audio Mode</td>
+<td>📁 Custom Download Path</td>
+</tr><tr>
+<td>💻 Terminal Interface</td>
+<td>🐍 Python Powered</td>
+</tr>
+</table>---
+
+<h2>🛠 Installation</h2><h3>Step 1 — Clone Repository</h3>git clone https://github.com/CodeWithRafsun/CodeSungrab.git
+
+---
+
+<h3>Step 2 — Open Folder</h3>cd CodeSungrab
+
+---
+
+<h3>Step 3 — Give Permission</h3>chmod +x install.sh
+
+---
+
+<h3>Step 4 — Run Installer</h3>bash install.sh
+
+<br>The installer automatically:
+
+✓ Checks Python
+✓ Installs requirements
+✓ Copies project files
+✓ Creates global command
+
+---
+
+<h2>🚀 Quick Start</h2>Run:
+
+sungrab
+
+---
+
+<h2>📥 Download Process</h2>Example:
+
+Enter URL:
+https://youtube.com/example
+
+Select quality:
+
+[1] Best Quality
+[2] 720p
+[3] 480p
+[4] MP3 Audio Only
+
+---
+
+<h2>📂 Project Structure</h2>CodeSungrab/
+
+├── main.py
+├── downloader.py
+├── utils.py
+├── config.py
+├── requirements.txt
+├── install.sh
+├── ascii-text-art (1).png
+└── downloads/
+
+---
+
+<h2>⚙️ Technology Stack</h2>Language      : Python
+Installer     : Bash Script
+Downloader    : yt-dlp
+Environment   : Termux / Linux
+
+---
+
+<h2>👨‍💻 Developer</h2><b>Project:</b> CodeSungrab
+<br>
+
+<b>Version:</b> v1.0.0 Stable
+<br>
+
+<b>Powered By:</b> CodeSun
+<br>
+
+<b>Developer:</b> Mahedi Hasan Rafsun
+
+---
+
+<h2>🌐 Links</h2><b>GitHub:</b>
+
+https://github.com/CodeWithRafsun
+
+<b>Portfolio:</b>
+
+https://codewithrafsun.vercel.app
+
+<b>Email:</b>
+
+codewithrafsun@gmail.com
+
+<b>Social:</b>
+
+@codewithrafsun
+
+---
+
+<h2>⭐ Support The Project</h2>If you like <b>CodeSungrab</b>:
+
+⭐ Star the repository
+📢 Share with developers
+🐛 Report issues
+💡 Suggest improvements
+
+Your support helps the project grow.
+
+---
+
+<h2>🔮 Future Updates</h2>✓ More platform support
+✓ Better download management
+✓ Advanced configuration
+✓ Improved terminal UI
+✓ More automation features
+
+---
+
+<h2>© Copyright</h2><p>
+© 2026 <b>Mahedi Hasan Rafsun</b>
+<br>
+Developed under <b>CodeWithRafsun</b>
+</p>---
+
+<h2>🙏 Thanks</h2><p>
+Thank you for using <b>CodeSungrab</b>.
+<br><br>Every ⭐ star, feedback and contribution motivates future development.
+
+</p><p align="center">
+<b>Made with Python by CodeSun</b>
 </p>
-
-<p align="center">
-  <b>SunGrad</b> - A powerful, zero-dependency bulk downloader for YouTube and direct MP4 links.<br>
-  Built for Termux and Linux. No Python libraries needed except yt-dlp.
-</p>
-
-<p align="center">
-  <a href="https://github.com/CodeWithRafsun/CodeSungrad/stargazers">
-    <img src="https://img.shields.io/github/stars/CodeWithRafsun/CodeSungrad?style=for-the-badge" alt="Stars">
-  </a>
-  <a href="https://github.com/CodeWithRafsun/CodeSungrad/network/members">
-    <img src="https://img.shields.io/github/forks/CodeWithRafsun/CodeSungrad?style=for-the-badge" alt="Forks">
-  </a>
-  <a href="https://github.com/CodeWithRafsun/CodeSungrad/issues">
-    <img src="https://img.shields.io/github/issues/CodeWithRafsun/CodeSungrad?style=for-the-badge" alt="Issues">
-  </a>
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
-</p>
-
----
-
-### ✨ Features
-
-- **Zero Library Dependency** - Only uses Python built-in modules + yt-dlp
-- **Hybrid Engine** - Auto detects YouTube vs Direct MP4 links
-- **Custom Download Path** - Choose folder for each download [Y/n]
-- **Quality Selection** - 4K, 1080p, 720p, 480p, MP3 Audio
-- **Beautiful UI** - Colorful banner and live progress bar
-- **Global Command** - Run `sungrad` from anywhere after install
-- **Termux Optimized** - Works perfectly on Android
-
----
-
-### 📦 Installation
-
-#### Method 1: One Command Setup [Recommended]
-```bash
-git clone https://github.com/CodeWithRafsun/CodeSungrad.git
-cd CodeSungrad
-bash install.sh
-#### Method 2: Manual Setup
-git clone https://github.com/CodeWithRafsun/CodeSungrad.git
-cd CodeSungrad
-pip install -r requirements.txt
-python main.py
-#### Grant Storage Permission [Termux Only]
-termux-setup-storage
-After installation, run from any directory:
-sungrad
----
-
-### 🚀 Usage
-
-1. Run `sungrad` command
-2. Paste YouTube or Direct MP4 URL
-3. Choose `Y` for default path or `N` for custom path
-4. Select quality if YouTube link
-5. Download starts with live progress bar
-
-*Default Download Path:* `downloads/` folder inside tool directory
-*Custom Path Example:* `/storage/emulated/0/Download/SunGrad/`
-
----
-
-### 👨‍💻 Developer Info
-
-*Developed by:* Mahedi Hasan Rafsun
-*GitHub Username:* @CodeWithRafsun
-*Powered by:* CodeSun
-
-*Contact:*
-- Email: codewithrafsun@gmail.com
-- Website: http://codewithrafsun.vercel.app
-
-*Social Links:*
-- GitHub: https://github.com/CodeWithRafsun
-- Facebook: https://facebook.com/codewithrafsun
-- Instagram: https://instagram.com/codewithrafsun
-- TikTok: https://tiktok.com/@codewithrafsun
-- YouTube: https://youtube.com/@codewithrafsun
-
----
-
-### 📁 Project Structure
-CodeSungrad/
-├── main.py # Main menu and user interface
-├── downloader.py # Hybrid download engine
-├── utils.py # Colors, banner, progress bar
-├── config.py # Settings and default path
-├── requirements.txt # Only yt-dlp dependency
-└── install.sh # One command installer
----
-
-### 📄 License
-MIT License
-
-Copyright 2026 CodeSun
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files to use, modify and
-distribute this software.
-*Copyright © 2026 CodeSun. All Rights Reserved.*
-
----
-
-<p align="center">
-  Made with ❤️ by <b>CodeWithRafsun</b><br>
-  If you like this project, give it a ⭐ on GitHub!
-</p>
-
-

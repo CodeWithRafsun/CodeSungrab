@@ -19,34 +19,35 @@ class colors:
 
 def show_banner():
 
-    # ==========================================
-    # PASTE MAIN ASCII BANNER HERE
-    # ==========================================
-
     banner = f"""
 {colors.CYAN}{colors.BOLD}
 
-  /$$$$$$  /$$   /$$ /$$   /$$  /$$$$$$  /$$$$$$$   /$$$$$$  /$$$$$$$
- /$$__  $$| $$  | $$| $$$ | $$ /$$__  $$| $$__  $$ /$$__  $$| $$__  $$
-| $$  \__/| $$  | $$| $$$$| $$| $$  \__/| $$  \ $$| $$  \ $$| $$  \ $$
-|  $$$$$$ | $$  | $$| $$ $$ $$| $$ /$$$$| $$$$$$$/| $$$$$$$$| $$$$$$$
- \____  $$| $$  | $$| $$  $$$$| $$|_  $$| $$__  $$| $$__  $$| $$__  $$
- /$$  \ $$| $$  | $$| $$\  $$$| $$  \ $$| $$  \ $$| $$  | $$| $$  \ $$
-|  $$$$$$/|  $$$$$$/| $$ \  $$|  $$$$$$/| $$  | $$| $$  | $$| $$$$$$$/
- \______/  \______/ |__/  \__/ \______/ |__/  |__/|__/  |__/|_______/
+  sSSs   .S       S.    .S_sSSs      sSSSSs   .S_sSSs     .S_SSSs     .S_SSSs
+ d%%SP  .SS       SS.  .SS~YS%%b    d%%%%SP  .SS~YS%%b   .SS~SSSSS   .SS~SSSSS
+d%S'    S%S       S%S  S%S   `S%b  d%S'      S%S   `S%b  S%S   SSSS  S%S   SSSS
+S%|     S%S       S%S  S%S    S%S  S%S       S%S    S%S  S%S    S%S  S%S    S%S
+S&S     S&S       S&S  S%S    S&S  S&S       S%S    d*S  S%S SSSS%S  S%S SSSS%P
+Y&Ss    S&S       S&S  S&S    S&S  S&S       S&S   .S*S  S&S  SSS%S  S&S  SSSY
+`S&&S   S&S       S&S  S&S    S&S  S&S       S&S_sdSSS   S&S    S&S  S&S    S&S
+  `S*S  S&S       S&S  S&S    S&S  S&S sSSs  S&S~YSY%b   S&S    S&S  S&S    S&S
+   l*S  S*b       d*S  S*S    S*S  S*b `S%%  S*S   `S%b  S*S    S&S  S*S    S&S
+  .S*P  S*S.     .S*S  S*S    S*S  S*S   S%  S*S    S%S  S*S    S*S  S*S    S*S
+sSS*S    SSSbs_sdSSS   S*S    S*S   SS_sSSS  S*S    S&S  S*S    S*S  S*S SSSSP
+YSS'      YSSP~YSSY    S*S    SSS    Y~YSSY  S*S    SSS  SSS    S*S  S*S  SSY
+                       SP                    SP                 SP   SP
+                       Y                     Y                  Y    Y
 
 
-                 SunGrad v1.0.0
-            Zero Library Video Downloader
+                           SunGrad v1.0.0
+                    Zero Library Video Downloader
 
 
-{colors.YELLOW}>>> {colors.WHITE}Powered by   : CodeSun
-{colors.YELLOW}>>> {colors.WHITE}Developer    : Mahedi Hasan Rafsun
-{colors.YELLOW}>>> {colors.WHITE}Version      : v1.0.0 Stable
+{colors.YELLOW}Powered By : {colors.WHITE}CodeSun                               {colors.YELLOW}Email     : {colors.WHITE}codewithrafsun@gmail.com
+{colors.YELLOW}Developer  : {colors.WHITE}Mahedi Hasan Rafsun                   {colors.YELLOW}Portfolio : {colors.WHITE}codewithrafsun.vercel.app
+{colors.YELLOW}Version    : {colors.WHITE}v1.0.0 Stable                         {colors.YELLOW}Website   : {colors.WHITE}codesungrab.vercel.app
 
 
 {colors.GREEN}[+] {colors.WHITE}Fast • Simple • Terminal Based
-
 
 {colors.RESET}
 """

@@ -7,7 +7,6 @@ CYAN='\033[0;36m'
 BOLD='\033[1m'
 RESET='\033[0m'
 
-
 clear
 
 
@@ -17,17 +16,24 @@ clear
 
 echo -e "${CYAN}${BOLD}"
 
-echo "
-  /$$$$$$  /$$   /$$ /$$   /$$  /$$$$$$  /$$$$$$$   /$$$$$$  /$$$$$$$
- /$$__  $$| $$  | $$| $$$ | $$ /$$__  $$| $$__  $$ /$$__  $$| $$__  $$
-| $$  \__/| $$  | $$| $$$$| $$| $$  \__/| $$  \ $$| $$  \ $$| $$  \ $$
-|  $$$$$$ | $$  | $$| $$ $$ $$| $$ /$$$$| $$$$$$$/| $$$$$$$$| $$$$$$$
- \____  $$| $$  | $$| $$  $$$$| $$|_  $$| $$__  $$| $$__  $$| $$__  $$
- /$$  \ $$| $$  | $$| $$\  $$$| $$  \ $$| $$  \ $$| $$  | $$| $$  \ $$
-|  $$$$$$/|  $$$$$$/| $$ \  $$|  $$$$$$/| $$  | $$| $$  | $$| $$$$$$$/
- \______/  \______/ |__/  \__/ \______/ |__/  |__/|__/  |__/|_______/
+cat << 'EOF'
 
-"
+  sSSs    sSSs_sSSs     .S_sSSs      sSSs    sSSs   .S       S.    .S_sSSs
+ d%%SP   d%%SP~YS%%b   .SS~YS%%b    d%%SP   d%%SP  .SS       SS.  .SS~YS%%b
+d%S'    d%S'     `S%b  S%S   `S%b  d%S'    d%S'    S%S       S%S  S%S   `S%b
+S%S     S%S       S%S  S%S    S%S  S%S     S%|     S%S       S%S  S%S    S%S
+S&S     S&S       S&S  S%S    S&S  S&S     S&S     S&S       S&S  S%S    S&S
+S&S     S&S       S&S  S&S    S&S  S&S_Ss  Y&Ss    S&S       S&S  S&S    S&S
+S&S     S&S       S&S  S&S    S&S  S&S~SP  `S&&S   S&S       S&S  S&S    S&S
+S&S     S&S       S&S  S&S    S&S  S&S       `S*S  S&S       S&S  S&S    S&S
+S*b     S*b       d*S  S*S    d*S  S*b        l*S  S*b       d*S  S*S    S*S
+S*S.    S*S.     .S*S  S*S   .S*S  S*S.      .S*P  S*S.     .S*S  S*S    S*S
+ SSSbs   SSSbs_sdSSS   S*S_sdSSS    SSSbs  sSS*S    SSSbs_sdSSS   S*S    S*S
+  YSSP    YSSP~YSSY    SSS~YSSY      YSSP  YSS'      YSSP~YSSY    S*S    SSS
+                                                                  SP
+                                                                  Y
+
+EOF
 
 echo -e "${RESET}"
 
@@ -50,10 +56,10 @@ python3 -m pip install -r requirements.txt --upgrade
 echo -e "${GREEN}[+] Dependencies installed${RESET}"
 
 
-echo -e "${YELLOW}[3/5]${RESET} Creating SunGrad directory..."
+echo -e "${YELLOW}[3/5]${RESET} Creating SunGrab directory..."
 
 
-INSTALL_DIR="$PREFIX/share/sungrad"
+INSTALL_DIR="$PREFIX/share/sungrab"
 
 mkdir -p "$INSTALL_DIR"
 
@@ -71,7 +77,7 @@ echo -e "${GREEN}[+] Files copied${RESET}"
 echo -e "${YELLOW}[4/5]${RESET} Creating command..."
 
 
-cat > "$PREFIX/bin/sungrad" << EOF
+cat > "$PREFIX/bin/sungrab" << EOF
 #!/data/data/com.termux/files/usr/bin/bash
 
 cd $INSTALL_DIR
@@ -80,10 +86,10 @@ python3 main.py
 EOF
 
 
-chmod +x "$PREFIX/bin/sungrad"
+chmod +x "$PREFIX/bin/sungrab"
 
 
-echo -e "${GREEN}[+] SunGrad command created${RESET}"
+echo -e "${GREEN}[+] SunGrab command created${RESET}"
 
 
 echo -e "${YELLOW}[5/5]${RESET} Final setup..."
@@ -102,31 +108,45 @@ clear
 echo -e "${GREEN}${BOLD}"
 
 
-echo "
-  /$$$$$$
- /$$__  $$
-| $$  \__/ /$$   /$$  /$$$$$$$  /$$$$$$$  /$$$$$$   /$$$$$$$ /$$$$$$$
-|  $$$$$$ | $$  | $$ /$$_____/ /$$_____/ /$$__  $$ /$$_____//$$_____/
- \____  $$| $$  | $$| $$      | $$      | $$$$$$$$|  $$$$$$|  $$$$$$
- /$$  \ $$| $$  | $$| $$      | $$      | $$_____/ \____  $$\____  $$
-|  $$$$$$/|  $$$$$$/|  $$$$$$$|  $$$$$$$|  $$$$$$$ /$$$$$$$//$$$$$$$/
- \______/  \______/  \_______/ \_______/ \_______/|_______/|_______/
+cat << 'EOF'
 
-"
+  sSSs   .S       S.     sSSs    sSSs    sSSs    sSSs    sSSs
+ d%%SP  .SS       SS.   d%%SP   d%%SP   d%%SP   d%%SP   d%%SP
+d%S'    S%S       S%S  d%S'    d%S'    d%S'    d%S'    d%S'
+S%|     S%S       S%S  S%S     S%S     S%S     S%|     S%|
+S&S     S&S       S&S  S&S     S&S     S&S     S&S     S&S
+Y&Ss    S&S       S&S  S&S     S&S     S&S_Ss  Y&Ss    Y&Ss
+`S&&S   S&S       S&S  S&S     S&S     S&S~SP  `S&&S   `S&&S
+  `S*S  S&S       S&S  S&S     S&S     S&S       `S*S    `S*S
+   l*S  S*b       d*S  S*b     S*b     S*b        l*S     l*S
+  .S*P  S*S.     .S*S  S*S.    S*S.    S*S.      .S*P    .S*P
+sSS*S    SSSbs_sdSSS    SSSbs   SSSbs   SSSbs  sSS*S   sSS*S
+YSS'      YSSP~YSSY      YSSP    YSSP    YSSP  YSS'    YSS'
+
+EOF
 
 
 echo -e "${RESET}"
 
 
-echo -e "${GREEN}${BOLD}SunGrad installation completed successfully!${RESET}"
+echo -e "${GREEN}${BOLD}SunGrab installation completed successfully!${RESET}"
 
 echo ""
 
-echo -e "${CYAN}Run command:${RESET} ${YELLOW}sungrad${RESET}"
+echo -e "${CYAN}Your downloader is ready to use.${RESET}"
 
 echo ""
 
-echo -e "${CYAN}Powered by CodeSun${RESET}"
-echo -e "${CYAN}Developer: Mahedi Hasan Rafsun${RESET}"
+echo -e "${YELLOW}Run command:${RESET} ${GREEN}sungrab${RESET}"
 
 echo ""
+
+echo -e "${YELLOW}Project Information:${RESET}"
+echo "Name      : SunGrab"
+echo "Version   : v1.0.0 Stable"
+echo "Powered   : CodeSun"
+echo "Developer : Mahedi Hasan Rafsun"
+
+echo ""
+
+echo -e "${GREEN}Enjoy using SunGrab.${RESET}"
