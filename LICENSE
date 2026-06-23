@@ -1,90 +1,42 @@
-CodeSungrab Proprietary License
+MIT License
 
 Copyright (c) 2026 Mahedi Hasan Rafsun
-Powered by CodeSun
 
-All Rights Reserved.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
----
 
-1. Ownership
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-CodeSungrab is an original software project created and maintained by:
 
-Mahedi Hasan Rafsun
-under the brand CodeSun / CodeWithRafsun
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 
-All source code, design, branding, documentation, assets, and project structure are protected intellectual property.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE.
 
----
-
-2. Restrictions
-
-Without explicit written permission from the owner, you are NOT allowed to:
-
-- Copy this project or any part of its source code
-- Modify, edit, or create derivative versions
-- Redistribute or publish this software
-- Rebrand this project under another name
-- Remove credits, copyright notices, or ownership information
-- Sell, monetize, or use this project commercially
-- Upload modified versions to other repositories
-- Claim this project as your own work
 
 ---
 
-3. Usage Permission
+Project:
+SunGrab Mega
 
-You may:
+Version:
+v2.0.2 Argentina Victory Edition 🇦🇷
 
-- Download and use CodeSungrab personally
-- Test the software
-- Review the project for learning purposes
-
-Any other usage requires permission from the owner.
-
----
-
-4. Modification Policy
-
-Modification of CodeSungrab source code is strictly prohibited unless permission is granted by:
-
+Developer:
 Mahedi Hasan Rafsun
 
-Approved modifications must keep original credits and ownership information.
+Brand:
+CodeSun
 
----
-
-5. Distribution
-
-Sharing this repository or software outside the official source is not permitted.
-
-Official source:
-
-https://github.com/CodeWithRafsun/CodeSungrab
-
----
-
-6. Warranty Disclaimer
-
-This software is provided "AS IS".
-
-The owner is not responsible for any damage, data loss, or misuse caused by this software.
-
----
-
-7. Enforcement
-
-Unauthorized copying, modification, redistribution, or removal of ownership information may result in copyright enforcement actions.
-
----
-
-8. Final Notice
-
-CodeSungrab is not an open-source project.
-
-The source code, branding, and intellectual property belong exclusively to:
-
-Mahedi Hasan Rafsun
-
-© 2026 CodeSun. All Rights Reserved.
+Powered By:
+yt-dlp

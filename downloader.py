@@ -1,163 +1,401 @@
 #!/usr/bin/env python3
 
-import os
-import urllib.request
+# ==========================================
+# SunGrab Mega v2.0.2
+# Multi Platform Downloader Engine
+# ==========================================
 
-from utils import (
-    progress_bar,
-    msg_success,
-    msg_error,
-    msg_info
+
+import os
+
+import yt_dlp
+
+
+from dashboard import (
+    create_progress,
+    show_download_header,
+    show_complete,
+    show_error
 )
 
 
-def is_youtube(url):
-    return "youtube.com" in url or "youtu.be" in url
+
+def format_progress(data):
+
+    if data["status"] == "downloading":
 
 
+        total = (
+            data.get("total_bytes")
+            or
+            data.get("total_bytes_estimate",0)
+        )
 
-def download_direct(url, filename, download_path):
 
-    msg_info(f"Downloading: {filename}")
+        downloaded = data.get(
+            "downloaded_bytes",
+            0
+        )
 
 
-    def reporthook(block_num, block_size, total_size):
+        if total:
 
-        downloaded = block_num * block_size
-
-        if total_size > 0:
-            mb = downloaded / 1024 / 1024
-            total_mb = total_size / 1024 / 1024
-
-            progress_bar(
-                mb,
-                total_mb
+            return int(
+                downloaded / total * 100
             )
+
+
+    return 0
+
+
+
+
+
+def base_options(
+        path,
+        hook
+):
+
+
+    return {
+
+
+        "outtmpl":
+        os.path.join(
+            path,
+            "%(title)s.%(ext)s"
+        ),
+
+
+        "progress_hooks":
+        [
+            hook
+        ],
+
+
+        "quiet":
+        True,
+
+
+        "noprogress":
+        True,
+
+
+        "ignoreerrors":
+        False,
+
+
+        "retries":
+        5,
+
+
+        "nocheckcertificate":
+        True
+
+    }
+
+
+
+
+
+def download_video(
+        url,
+        path,
+        platform="Unknown"
+):
+
+
+    show_download_header(
+        platform,
+        "Video"
+    )
+
+
+    progress = create_progress()
+
+
+    task = progress.add_task(
+        "Downloading...",
+        total=100
+    )
+
+
+
+    def hook(data):
+
+        progress.update(
+            task,
+            completed=format_progress(data)
+        )
+
+
+
+    options = base_options(
+        path,
+        hook
+    )
+
+
+    options.update({
+
+
+        "format":
+        "bestvideo+bestaudio/best",
+
+
+        "merge_output_format":
+        "mp4"
+
+
+    })
+
 
 
     try:
 
+
         os.makedirs(
-            download_path,
+            path,
             exist_ok=True
         )
 
 
-        save_path = os.path.join(
-            download_path,
-            filename
+
+        with progress:
+
+
+            with yt_dlp.YoutubeDL(options) as ydl:
+
+
+                info = ydl.extract_info(
+                    url,
+                    download=True
+                )
+
+
+
+        show_complete(
+            info.get(
+                "title",
+                "Video"
+            )
         )
 
 
-        urllib.request.urlretrieve(
-            url,
-            save_path,
-            reporthook
+
+    except Exception as e:
+
+
+        show_error(
+            str(e)
         )
 
 
-        print()
 
-        msg_success(
-            f"Saved to {save_path}"
+
+
+
+
+def download_audio(
+        url,
+        path,
+        platform="Unknown"
+):
+
+
+    show_download_header(
+        platform,
+        "Audio Only"
+    )
+
+
+
+    options = base_options(
+        path,
+        lambda x: None
+    )
+
+
+
+    options.update({
+
+
+        "format":
+        "bestaudio/best",
+
+
+
+        "postprocessors":
+        [
+
+            {
+
+            "key":
+            "FFmpegExtractAudio",
+
+
+            "preferredcodec":
+            "mp3",
+
+
+            "preferredquality":
+            "192"
+
+            }
+
+        ]
+
+    })
+
+
+
+    try:
+
+
+        os.makedirs(
+            path,
+            exist_ok=True
+        )
+
+
+
+        with yt_dlp.YoutubeDL(options) as ydl:
+
+
+            info = ydl.extract_info(
+                url,
+                download=True
+            )
+
+
+
+        show_complete(
+            info.get(
+                "title",
+                "Audio"
+            )
+        )
+
+
+
+    except Exception as e:
+
+
+        show_error(
+            str(e)
+        )
+
+
+
+
+
+
+
+def download_tiktok(
+        url,
+        path,
+        mode="with_watermark"
+):
+
+
+    options = {
+
+
+        "outtmpl":
+        os.path.join(
+            path,
+            "%(title)s.%(ext)s"
+        ),
+
+
+        "quiet":
+        True
+
+    }
+
+
+
+    if mode == "without_watermark":
+
+        options["format"] = "best"
+
+
+
+    else:
+
+        options["format"] = "bestvideo+bestaudio/best"
+
+
+
+    try:
+
+
+        with yt_dlp.YoutubeDL(options) as ydl:
+
+
+            info = ydl.extract_info(
+                url,
+                download=True
+            )
+
+
+        show_complete(
+            info.get(
+                "title",
+                "TikTok Video"
+            )
         )
 
 
     except Exception as e:
 
-        print()
 
-        msg_error(
-            f"Download failed: {e}"
+        show_error(
+            str(e)
         )
 
 
 
 
-def download_youtube(url, quality="best", download_path="downloads/"):
-
-    msg_info(
-        "Starting YouTube download..."
-    )
-
-
-    os.makedirs(
-        download_path,
-        exist_ok=True
-    )
-
-
-    output_template = os.path.join(
-        download_path,
-        "%(title)s.%(ext)s"
-    )
-
-
-    cmd = (
-        f'python3 -m yt_dlp '
-        f'-o "{output_template}" '
-        f'-f "{quality}" '
-        f'--progress '
-        f'--no-warnings '
-        f'--extractor-args "youtube:player_client=android" '
-        f'--merge-output-format mp4 '
-        f'"{url}"'
-    )
-
-
-    result = os.system(cmd)
 
 
 
-    if result == 0:
-
-        msg_success(
-            "YouTube download finished!"
-        )
-
-    else:
-
-        msg_error(
-            "YouTube download failed!"
-        )
-
-
-
-
-def download_file(
+def download_media(
         url,
-        filename=None,
-        quality="best",
-        download_path="downloads/"
+        path,
+        media_type,
+        platform
 ):
 
 
-    if is_youtube(url):
 
-        download_youtube(
-            url=url,
-            quality=quality,
-            download_path=download_path
+    if media_type == "audio":
+
+
+        download_audio(
+            url,
+            path,
+            platform
         )
 
 
     else:
 
 
-        if filename is None:
+        if platform == "TikTok":
 
-            filename = (
-                url.split("/")[-1]
-                .split("?")[0]
-                or "video.mp4"
+
+            download_tiktok(
+                url,
+                path
             )
 
 
-        download_direct(
+        else:
 
-            url=url,
 
-            filename=filename,
-
-            download_path=download_path
-        )
+            download_video(
+                url,
+                path,
+                platform
+            )
