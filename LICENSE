@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 Mahedi Hasan Rafsun
+Copyright (c) 2026 CodeSun (Mahedi Hasan Rafsun)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -9,34 +9,69 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
-OR OTHER DEALINGS IN THE SOFTWARE.
-
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ---
 
-Project:
-SunGrab Mega
+## Additional Terms
 
-Version:
-v2.0.2 Argentina Victory Edition 🇦🇷
+This software is provided for educational and personal use only. 
+Users are responsible for complying with all applicable laws and 
+terms of service of the platforms they download content from.
 
-Developer:
+## Argentina Victory Edition 🇦🇷
+
+This edition is dedicated to the passion, pride, and glory of Argentina 
+and the legendary Lionel Messi. The sky blue and white colors of the 
+Argentina flag inspired the design of this tool.
+
+⚽ VAMOS ARGENTINA! ⚽
+🏆 MESSI 10 🏆
+
+---
+
+## About the Developer
+
 Mahedi Hasan Rafsun
+- Developer Handle: @codewithrafsun
+- Brand: CodeSun
+- GitHub: https://github.com/CodeWithRafsun
+- Website: https://codewithrafsun.vercel.app
 
-Brand:
-CodeSun
+---
 
-Powered By:
-yt-dlp
+## Third-Party Licenses
+
+This project uses the following open-source libraries:
+
+### yt-dlp
+- License: The Unlicense (Public Domain)
+- https://github.com/yt-dlp/yt-dlp
+
+### Rich
+- License: MIT License
+- https://github.com/Textualize/rich
+
+### Python
+- License: Python Software Foundation License
+- https://www.python.org/
+
+---
+
+## Disclaimer
+
+This tool is for educational and personal purposes only. 
+The developers do not condone copyright infringement or 
+violation of any platform's terms of service. Users are 
+solely responsible for how they use this tool.
+
+© 2026 CodeSun. All Rights Reserved.

@@ -1,263 +1,153 @@
+# Changelog
 
-# SunGrab Mega Changelog
+All notable changes to SunGrab Mega will be documented in this file.
 
-All notable changes, improvements, and updates of SunGrab Mega are documented here.
+## [2.0.3] - 2026-06-25
 
----
+### 🎉 New Features
+- **Playlist Download**: Download entire YouTube playlists with range selection
+- **Batch Download**: Download multiple URLs at once (Sequential & Parallel modes)
+- **Parallel Downloads**: Download up to 10 files simultaneously with ThreadPoolExecutor
+- **Subtitles Support**: Download video with embedded subtitles (English, Bengali, Hindi)
+- **Download Resume**: Resume interrupted downloads automatically
+- **Download History**: Track all downloads with timestamp and status
+- **Proxy Support**: Configure HTTP/SOCKS5 proxy for restricted networks
+- **Speed Limit**: Set custom download speed limits (KB/s or MB/s)
+- **Cookie Support**: Import cookies for authenticated content
+- **Custom Filename**: Configurable filename templates with metadata
 
-# SunGrab Mega v2.0.2
-## Argentina Victory Edition 🇦🇷
+### 🎨 UI Improvements
+- **Argentina Flag Theme**: Sky blue and white colors throughout the interface
+- **Compact Menus**: Reduced screen space usage with better organization
+- **Rich Dashboard**: Enhanced progress bars with Argentina colors
+- **Better Error Messages**: Clearer error handling and user feedback
+- **About Section**: Beautiful ASCII art with complete project information
 
-Release Type: Major Update  
-Version: 2.0.2  
-Powered by: CodeSun  
-Developer: Mahedi Hasan Rafsun  
+### 🔧 Technical Improvements
+- **Better Error Handling**: Comprehensive try-catch blocks with logging
+- **Logging System**: File-based logging for debugging
+- **Configuration Management**: Save/load user preferences
+- **URL Validation**: Improved validation with playlist detection
+- **Internet Check**: Verify connection before downloads
 
----
+### 🐛 Bug Fixes
+- Fixed long menu display issues
+- Fixed progress bar not updating correctly
+- Fixed memory leaks in batch downloads
+- Fixed TikTok watermark removal issues
+- Fixed playlist extraction errors
 
-## 🚀 Overview
-
-SunGrab Mega v2.0.2 is the biggest upgrade of SunGrab.
-
-This update transforms SunGrab from a simple YouTube downloader into a powerful multi-platform media downloader with a modern terminal experience.
-
-This special edition is dedicated to Argentina football fans and Lionel Messi supporters. 🇦🇷⚽
-
----
-
-# ✨ New Features
-
-## Multi Platform Support
-
-Added support for downloading media from multiple platforms:
-
-- YouTube
-- Facebook
-- Instagram
-- Twitter / X
-- TikTok
-- SoundCloud
-- Twitch
-- Vimeo
-- Dailymotion
-- Reddit
-- Others (yt-dlp supported URLs)
-
----
-
-## 🎬 Video & Audio Download
-
-Added two download modes:
-
-### Video Mode
-
-- Best quality download
-- MP4 support
-- Multi-platform video downloading
-
-
-### Audio Mode
-
-- Audio only download
-- MP3 conversion support
-- Faster audio extraction
+### 📚 Documentation
+- Updated README with new features
+- Added CHANGELOG.md
+- Updated LICENSE with additional terms
+- Added Argentina Victory Edition branding
 
 ---
 
-# 📊 Rich Download Dashboard
+## [2.0.2] - 2026-06-20
 
-Added a new modern terminal dashboard powered by Rich library.
+### 🎉 New Features
+- Initial Argentina Victory Edition release
+- Multi-platform media downloader
+- Video and audio download support
+- Rich terminal dashboard interface
+- TikTok watermark options
+- URL validation system
 
-Dashboard includes:
+### 🎨 UI
+- Basic Argentina flag colors
+- Simple menu system
+- Progress tracking
 
-- Live progress bar
-- Download percentage
-- File size
-- Download speed
-- ETA timer
-- Download status panel
-
----
-
-# 🎨 New Terminal UI
-
-Improved the complete user interface:
-
-Added:
-
-- Argentina themed colors 🇦🇷
-- New startup banner
-- Version information
-- Better menus
-- Cleaner terminal experience
+### 🔧 Technical
+- yt-dlp integration
+- Basic error handling
+- Termux compatibility
 
 ---
 
-# 🇦🇷 Argentina Victory Edition
+## [2.0.1] - 2026-06-15
 
-Special branding update:
-
-- Argentina themed banner
-- Lionel Messi dedication
-- Argentina football facts
-- Victory edition release identity
-
-VAMOS ARGENTINA 🇦🇷
+### 🎉 New Features
+- First public release
+- Basic download functionality
+- Platform selection
+- Download path control
 
 ---
 
-# 🎵 TikTok Improvements
+## [2.0.0] - 2026-06-10
 
-Added TikTok download options:
-
-- Download with watermark
-- Download without watermark mode
-
----
-
-# 🔍 Smart URL System
-
-Added:
-
-- URL validation
-- Platform detection
-- yt-dlp compatibility checking
-- Invalid URL error handling
-
-Example:
-
-Your pasted URL is invalid Please try another URL
+### 🎉 Initial Release
+- Core download engine
+- YouTube support
+- Command-line interface
+- Basic progress tracking
 
 ---
 
-# 📁 Download Management
+## Upcoming Features (Roadmap)
 
-Added:
+### v2.1.0 (Planned)
+- [ ] Audio format selection (MP3, M4A, WAV, FLAC)
+- [ ] Thumbnail download
+- [ ] Metadata extraction (ID3 tags)
+- [ ] Scheduled downloads
+- [ ] Download manager UI
+- [ ] Export/Import history
 
-- Default download directory
-- Custom download path
-- Automatic folder creation
+### v2.2.0 (Planned)
+- [ ] GUI version (Tkinter/PyQt)
+- [ ] Mobile app integration
+- [ ] Cloud storage upload
+- [ ] URL shortener support
+- [ ] Download analytics
 
----
-
-# 🏗️ Project Architecture Upgrade
-
-Old structure:
-
-main.py downloader.py utils.py config.py
-
-New modular structure:
-
-main.py downloader.py config.py utils.py
-
-banner.py dashboard.py validator.py platforms.py menus.py
-
----
-
-# ⚙️ Technical Improvements
-
-Added:
-
-- yt-dlp Python API integration
-- Rich terminal rendering
-- Colorama color management
-- Better error handling
-- Cleaner code separation
+### v3.0.0 (Future)
+- [ ] AI-powered video detection
+- [ ] Automatic format selection
+- [ ] Smart download optimization
+- [ ] Community features
 
 ---
 
-# 📦 Dependencies Added
+## Version Numbering
 
-New requirements:
-
-yt-dlp rich colorama
-
----
-
-# 🛠️ Installer Update
-
-Updated installer:
-
-Added:
-
-- New module installation
-- Updated version information
-- SunGrab Mega branding
-- Argentina Edition information
+- **Major**: Breaking changes (v2.0.0 → v3.0.0)
+- **Minor**: New features (v2.0.0 → v2.1.0)
+- **Patch**: Bug fixes (v2.0.0 → v2.0.1)
 
 ---
 
-# 🐛 Bug Fixes
+## Contributors
 
-Fixed:
-
-- Old YouTube-only limitation
-- Basic progress display
-- Poor download information
-- Limited project structure
+- **Mahedi Hasan Rafsun** - Creator & Lead Developer
+  - GitHub: [@CodeWithRafsun](https://github.com/CodeWithRafsun)
+  - Website: [codewithrafsun](https://codewithrafsun.vercel.app)
 
 ---
 
-# 🔄 Migration Notes
+## Special Thanks
 
-Users upgrading from v1.0.0 should install new dependencies:
-
-```bash
-pip install -r requirements.txt
-
-For Termux:
-
-bash install.sh
-
+- Argentina 🇦🇷 for the inspiration
+- Lionel Messi ⚽ for being the GOAT
+- yt-dlp team for the amazing engine
+- Rich team for the beautiful terminal UI
+- All contributors and users
 
 ---
 
-Previous Releases
+## Dedication
 
-SunGrab v1.0.0
+This project is dedicated to:
+- 🇦🇷 Argentina - The land of passion and glory
+- ⚽ Lionel Messi - The greatest footballer of all time
+- 🌟 All open-source contributors
+- 🚀 Future developers and creators
 
-Initial stable release.
-
-Features:
-
-YouTube video downloading
-
-Basic terminal interface
-
-Simple download system
-
-yt-dlp integration
-
-
+**¡VAMOS ARGENTINA!** 🇦🇷
 
 ---
 
-Credits
-
-Project: SunGrab Mega
-
-Brand: CodeSun
-
-Developer: Mahedi Hasan Rafsun
-
-
----
-
-Special Thanks
-
-Thanks to:
-
-yt-dlp community
-
-Rich library developers
-
-Open source contributors
-
-
-
----
-
-License
-
-See LICENSE file for details.
-
+© 2026 CodeSun. All Rights Reserved.

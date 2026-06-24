@@ -1,164 +1,107 @@
-<p align="center">
-  <img src="ascii-text-art (1).png" width="100%" alt="CodeSungrab Banner">
-</p><h1 align="center">
-  🚀 CodeSungrab
-</h1><p align="center">
-  <b>A Lightweight Terminal-Based Video Downloader</b>
-</p><p align="center">
-  <code>Fast</code> • <code>Simple</code> • <code>Developer Friendly</code> • <code>Termux/Linux</code>
-</p>---
+# ☀️ SunGrab Mega
 
-<h2>📌 About CodeSungrab</h2><p>
-<b>CodeSungrab</b> is a lightweight and powerful 
-<b>command-line video downloader</b> built with Python.
-</p><p>
-It is designed for developers and Linux/Termux users who want a simple,
-clean and fast terminal-based downloading experience.
-</p>---
+### Argentina Victory Edition 🇦🇷
 
-<h2>🎯 Objective</h2><ul>
-<li>Build a simple terminal downloader</li>
-<li>Create a lightweight developer utility</li>
-<li>Provide easy installation for Termux/Linux</li>
-<li>Keep the tool fast and beginner friendly</li>
-</ul>---
+[![Python](https://img.shields.io/badge/Python-3.7+-3776AB?style=flat&logo=python&logoColor=white)](https://python.org)
+[![Termux](https://img.shields.io/badge/Termux-Compatible-000000?style=flat&logo=termux&logoColor=white)](https://termux.com)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/Version-2.0.3-blue.svg)](CHANGELOG.md)
 
-<h2>✨ Features</h2><table>
-<tr>
-<td>⚡ Fast Download</td>
-<td>📺 YouTube Support</td>
-</tr><tr>
-<td>🎵 MP3 Audio Mode</td>
-<td>📁 Custom Download Path</td>
-</tr><tr>
-<td>💻 Terminal Interface</td>
-<td>🐍 Python Powered</td>
-</tr>
-</table>---
-
-<h2>🛠 Installation</h2><h3>Step 1 — Clone Repository</h3>git clone https://github.com/CodeWithRafsun/CodeSungrab.git
+> A modern command-line media downloader developed under the CodeSun brand.  
+> Built for Termux and Linux users who want a simple, fast, and developer-friendly way to download media from multiple platforms.
 
 ---
 
-<h3>Step 2 — Open Folder</h3>cd CodeSungrab
+## 📖 Table of Contents
+
+- [About](#-about)
+- [Features](#-features)
+- [Supported Platforms](#-supported-platforms)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Commands](#-commands)
+- [Configuration](#-configuration)
+- [Advanced Features](#-advanced-features)
+- [FAQ](#-faq)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
 
 ---
 
-<h3>Step 3 — Give Permission</h3>chmod +x install.sh
+## 📌 About
+
+**SunGrab Mega** is a powerful multi-platform media downloader built with Python and powered by the reliable [yt-dlp](https://github.com/yt-dlp/yt-dlp) engine. It provides a clean terminal workflow with platform selection, URL validation, download path control, video/audio format selection, and a Rich-powered dashboard experience.
+
+### Why SunGrab Mega?
+
+- **Simple**: User-friendly interface with clear menus
+- **Fast**: Parallel downloads with multi-threading
+- **Smart**: Auto-detects platforms and content types
+- **Beautiful**: Argentina flag colors with rich terminal UI
+- **Powerful**: Supports 11+ platforms with advanced features
+
+### Argentina Victory Edition 🇦🇷
+
+This edition is dedicated to the passion, pride, and glory of Argentina and the legendary Lionel Messi. The sky blue and white colors of the Argentina flag inspired the design of this tool.
 
 ---
 
-<h3>Step 4 — Run Installer</h3>bash install.sh
+## ✨ Features
 
-<br>The installer automatically:
+### Core Features
+- ✅ **Multi-Platform Download** - Download from 11+ platforms
+- ✅ **Video & Audio** - Download in best quality or extract audio
+- ✅ **Playlist Download** - Download entire YouTube playlists
+- ✅ **Batch Download** - Download multiple URLs at once
+- ✅ **Parallel Download** - Up to 10 simultaneous downloads
+- ✅ **Subtitles Support** - Download with embedded captions
+- ✅ **Download Resume** - Resume interrupted downloads
+- ✅ **Custom Path** - Choose your download location
+- ✅ **URL Validation** - Smart URL verification
+- ✅ **Rich Dashboard** - Beautiful terminal UI with progress
 
-✓ Checks Python
-✓ Installs requirements
-✓ Copies project files
-✓ Creates global command
+### Advanced Features
+- 🔧 **Proxy Support** - HTTP/SOCKS5 proxy configuration
+- ⚡ **Speed Limit** - Control download speed
+- 🍪 **Cookie Support** - Import cookies for authenticated content
+- 📊 **Download History** - Track all downloads
+- 📝 **Custom Filename** - Configurable naming templates
+- 🔄 **Auto-Retry** - Automatic retry on failure
+- 📁 **Smart Organization** - Organized file structure
+- 🎨 **Argentina Theme** - Sky blue and white colors
+- 🛡️ **Error Handling** - Comprehensive error management
+- 📋 **Logging** - File-based logging for debugging
 
 ---
 
-<h2>🚀 Quick Start</h2>Run:
+## 📱 Supported Platforms
 
+| Platform | Support | Platform | Support |
+|----------|---------|----------|---------|
+| YouTube | ✅ Full | Facebook | ✅ Full |
+| Instagram | ✅ Full | Twitter / X | ✅ Full |
+| TikTok | ✅ Full | SoundCloud | ✅ Full |
+| Twitch | ✅ Full | Vimeo | ✅ Full |
+| Dailymotion | ✅ Full | Reddit | ✅ Full |
+| Others | ✅ Auto-Detect | | |
+
+> **Note**: Any platform supported by yt-dlp is automatically supported!
+
+---
+
+## 🚀 Installation
+
+### Termux Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/CodeWithRafsun/CodeSungrab.git
+cd CodeSungrab
+
+# Run installer
+chmod +x install.sh
+./install.sh
+
+# Start using
 sungrab
-
----
-
-<h2>📥 Download Process</h2>Example:
-
-Enter URL:
-https://youtube.com/example
-
-Select quality:
-
-[1] Best Quality
-[2] 720p
-[3] 480p
-[4] MP3 Audio Only
-
----
-
-<h2>📂 Project Structure</h2>CodeSungrab/
-
-├── main.py
-├── downloader.py
-├── utils.py
-├── config.py
-├── requirements.txt
-├── install.sh
-├── ascii-text-art (1).png
-└── downloads/
-
----
-
-<h2>⚙️ Technology Stack</h2>Language      : Python
-Installer     : Bash Script
-Downloader    : yt-dlp
-Environment   : Termux / Linux
-
----
-
-<h2>👨‍💻 Developer</h2><b>Project:</b> CodeSungrab
-<br>
-
-<b>Version:</b> v1.0.0 Stable
-<br>
-
-<b>Powered By:</b> CodeSun
-<br>
-
-<b>Developer:</b> Mahedi Hasan Rafsun
-
----
-
-<h2>🌐 Links</h2><b>GitHub:</b>
-
-https://github.com/CodeWithRafsun
-
-<b>Portfolio:</b>
-
-https://codewithrafsun.vercel.app
-
-<b>Email:</b>
-
-codewithrafsun@gmail.com
-
-<b>Social:</b>
-
-@codewithrafsun
-
----
-
-<h2>⭐ Support The Project</h2>If you like <b>CodeSungrab</b>:
-
-⭐ Star the repository
-📢 Share with developers
-🐛 Report issues
-💡 Suggest improvements
-
-Your support helps the project grow.
-
----
-
-<h2>🔮 Future Updates</h2>✓ More platform support
-✓ Better download management
-✓ Advanced configuration
-✓ Improved terminal UI
-✓ More automation features
-
----
-
-<h2>© Copyright</h2><p>
-© 2026 <b>Mahedi Hasan Rafsun</b>
-<br>
-Developed under <b>CodeWithRafsun</b>
-</p>---
-
-<h2>🙏 Thanks</h2><p>
-Thank you for using <b>CodeSungrab</b>.
-<br><br>Every ⭐ star, feedback and contribution motivates future development.
-
-</p><p align="center">
-<b>Made with Python by CodeSun</b>
-</p>

@@ -1,5 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+# ==========================================
+# SunGrab Mega v2.0.3 Installer
+# ==========================================
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -10,18 +13,10 @@ WHITE='\033[97m'
 BOLD='\033[1m'
 RESET='\033[0m'
 
-
 clear
 
-
-# ==========================================
-# SunGrab Mega Installer Banner
-# Sky Blue
-# ==========================================
-
-
+# Banner
 echo -e "${SKY}${BOLD}"
-
 cat << 'EOF'
 
   sSSs    sSSs_sSSs     .S_sSSs      sSSs    sSSs   .S       S.    .S_sSSs
@@ -40,126 +35,64 @@ S*S.    S*S.     .S*S  S*S   .S*S  S*S.      .S*P  S*S.     .S*S  S*S    S*S
                                                                   Y
 
 EOF
-
-
 echo -e "${RESET}"
 
+echo -e "${WHITE}☀️ SunGrab Mega v2.0.3${RESET}"
+echo -e "${WHITE}Argentina Victory Edition 🇦🇷${RESET}"
+echo ""
 
-
-echo -e "${YELLOW}[1/5]${RESET} Checking Python3..."
-
-
-
-if ! command -v python3 >/dev/null 2>&1
-then
-
+# Check Python
+echo -e "${YELLOW}[1/6]${RESET} Checking Python3..."
+if ! command -v python3 >/dev/null 2>&1; then
     pkg update -y
     pkg install python -y
-
 fi
-
-
 echo -e "${GREEN}[+] Python ready${RESET}"
 
-
-
-
-echo -e "${YELLOW}[2/5]${RESET} Installing dependencies..."
-
-
-
+# Install dependencies
+echo -e "${YELLOW}[2/6]${RESET} Installing dependencies..."
 python3 -m pip install -r requirements.txt --upgrade
-
-
-
 echo -e "${GREEN}[+] Dependencies installed${RESET}"
 
+# Install yt-dlp
+echo -e "${YELLOW}[3/6]${RESET} Installing yt-dlp..."
+python3 -m pip install yt-dlp --upgrade
+echo -e "${GREEN}[+] yt-dlp installed${RESET}"
 
+# Install ffmpeg
+echo -e "${YELLOW}[4/6]${RESET} Installing ffmpeg..."
+pkg install ffmpeg -y
+echo -e "${GREEN}[+] ffmpeg installed${RESET}"
 
-
-
-echo -e "${YELLOW}[3/5]${RESET} Installing SunGrab Mega..."
-
-
-
+# Copy files
+echo -e "${YELLOW}[5/6]${RESET} Installing SunGrab Mega..."
 INSTALL_DIR="$PREFIX/share/sungrab"
-
-
-
 mkdir -p "$INSTALL_DIR"
 
-
-
-cp main.py "$INSTALL_DIR/"
-cp downloader.py "$INSTALL_DIR/"
-cp utils.py "$INSTALL_DIR/"
-cp config.py "$INSTALL_DIR/"
-
-cp banner.py "$INSTALL_DIR/"
-cp dashboard.py "$INSTALL_DIR/"
-cp validator.py "$INSTALL_DIR/"
-cp platforms.py "$INSTALL_DIR/"
-cp menus.py "$INSTALL_DIR/"
-
+cp main.py downloader.py utils.py config.py "$INSTALL_DIR/"
+cp banner.py dashboard.py validator.py platforms.py menus.py "$INSTALL_DIR/"
 cp requirements.txt "$INSTALL_DIR/"
-
-
+cp -r __pycache__ "$INSTALL_DIR/" 2>/dev/null || true
 
 echo -e "${GREEN}[+] Files copied${RESET}"
 
-
-
-
-
-echo -e "${YELLOW}[4/5]${RESET} Creating command..."
-
-
-
+# Create command
+echo -e "${YELLOW}[6/6]${RESET} Creating command..."
 cat > "$PREFIX/bin/sungrab" << EOF
-
 #!/data/data/com.termux/files/usr/bin/bash
-
 cd $INSTALL_DIR
-
 python3 main.py
-
 EOF
 
-
-
 chmod +x "$PREFIX/bin/sungrab"
-
-
-
 echo -e "${GREEN}[+] Command created${RESET}"
 
-
-
-
-
-echo -e "${YELLOW}[5/5]${RESET} Final setup..."
-
-
-
+# Final
 sleep 1
-
 clear
 
-
-
-
-
-# ==========================================
-# Success Banner
-# White
-# ==========================================
-
-
-
 echo -e "${WHITE}${BOLD}"
-
 cat << 'EOF'
-
 
  .oooooo..o
 d8P'    `Y8
@@ -169,45 +102,21 @@ Y88bo.      oooo  oooo   .ooooo.   .ooooo.   .ooooo.   .oooo.o  .oooo.o
 oo     .d8P  888   888  888   .o8 888   .o8 888    .o o.  )88b o.  )88b
 8""88888P'   `V88V"V8P' `Y8bod8P' `Y8bod8P' `Y8bod8P' 8""888P' 8""888P'
 
-
 EOF
-
-
 echo -e "${RESET}"
 
-
-
-
-echo -e "${GREEN}${BOLD}SunGrab Mega installation completed!${RESET}"
-
+echo -e "${GREEN}${BOLD}SunGrab Mega v2.0.3 Installation Complete!${RESET}"
 echo ""
-
-echo -e "${CYAN}Run command:${RESET} ${GREEN}sungrab${RESET}"
-
+echo -e "${CYAN}Run:${RESET} ${GREEN}sungrab${RESET}"
 echo ""
-
-echo -e "${YELLOW}Project   :${RESET} SunGrab Mega"
-
-echo -e "${YELLOW}Version   :${RESET} v2.0.2"
-
-echo -e "${YELLOW}Edition   :${RESET} Argentina Victory 🇦🇷"
-
-echo -e "${YELLOW}Engine    :${RESET} yt-dlp"
-
-echo -e "${YELLOW}Dashboard :${RESET} Rich Terminal UI"
-
-echo -e "${YELLOW}Platforms :${RESET} Multi Platform"
-
-echo -e "${YELLOW}Brand     :${RESET} CodeSun"
-
-echo -e "${YELLOW}Developer :${RESET} Mahedi Hasan Rafsun"
-
-
-
+echo -e "${YELLOW}New Features:${RESET}"
+echo -e "  ${WHITE}• Playlist Download${RESET}"
+echo -e "  ${WHITE}• Batch Download (Parallel/Sequential)${RESET}"
+echo -e "  ${WHITE}• Video with Subtitles${RESET}"
+echo -e "  ${WHITE}• Download History${RESET}"
+echo -e "  ${WHITE}• Resume Support${RESET}"
+echo -e "  ${WHITE}• Proxy Support${RESET}"
+echo -e "  ${WHITE}• Speed Limit${RESET}"
 echo ""
-
 echo -e "${CYAN}Dedicated to Argentina 🇦🇷 & Lionel Messi ⚽${RESET}"
-
-echo ""
-
 echo -e "${GREEN}VAMOS ARGENTINA 🇦🇷${RESET}"
