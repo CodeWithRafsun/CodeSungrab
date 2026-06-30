@@ -1,0 +1,11 @@
+.git
+.github
+__pycache__
+*.pyc
+.env
+data/*
+node_modules
+.DS_Store
+*.log
+setup.py
+MANIFEST.in

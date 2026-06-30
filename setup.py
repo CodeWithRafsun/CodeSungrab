@@ -5,7 +5,7 @@ from setuptools import setup
 import os
 
 # config.py থেকে ভার্সন পড়ে নিচ্ছি
-version = "2.0.2"
+version = "3.0.2"
 with open('config.py', 'r', encoding='utf-8') as f:
     for line in f:
         if line.startswith('VERSION'):

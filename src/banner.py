@@ -1,0 +1,270 @@
+#!/usr/bin/env python3
+# ==========================================
+# CodeSunGrab v3.0.0
+# Banner - Clean User Info (No Borders, Bullet Style)
+# ==========================================
+
+import os
+import re
+from datetime import datetime
+from config import Colors, VERSION, EDITION, BRAND, APP_NAME
+
+class colors:
+    SKY_BLUE = "\033[38;5;117m"
+    SKY = "\033[38;5;117m"
+    WHITE = "\033[97m"
+    GOLD = "\033[38;5;220m"
+    CYAN = "\033[96m"
+    GREEN = "\033[92m"
+    RED = "\033[91m"
+    YELLOW = "\033[93m"
+    MAGENTA = "\033[95m"
+    PINK = "\033[38;5;213m"
+    ORANGE = "\033[38;5;214m"
+    LIME = "\033[38;5;154m"
+    PURPLE = "\033[38;5;141m"
+    RESET = "\033[0m"
+    BOLD = "\033[1m"
+    DIM = "\033[2m"
+
+def strip_ansi(text):
+    ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+    return ansi_escape.sub('', text)
+
+def mask_email(email):
+    if not email or '@' not in email:
+        return email
+    parts = email.split('@')
+    username = parts[0]
+    domain = parts[1] if len(parts) > 1 else ''
+    if len(username) <= 4:
+        masked = username[:2] + '***'
+    elif len(username) <= 6:
+        masked = username[:3] + '***' + username[-2:]
+    else:
+        masked = username[:4] + '***' + username[-3:]
+    return f"{masked}@{domain}"
+
+def get_user_stats(user):
+    return {
+        'total_downloads': user.get('totalDownloads', 0),
+        'member_since': user.get('createdAt', 'N/A')[:10] if user.get('createdAt') else 'N/A',
+        'status': 'Verified' if user.get('verified', False) else '⚠️ Not Verified',
+        'last_platform': user.get('lastPlatform', 'None'),
+        'total_usage_time': user.get('totalUsageTime', '0h 0m'),
+        'account_type': user.get('accountType', 'Free'),
+        'downloads_today': user.get('downloadsToday', 0),
+    }
+
+def calculate_usage_time(created_at):
+    if not created_at:
+        return "Unknown"
+    try:
+        created = datetime.fromisoformat(created_at.replace('Z', '+00:00'))
+        now = datetime.utcnow()
+        delta = now - created
+        days = delta.days
+        if days < 1:
+            return "Joined today 🎉"
+        elif days < 30:
+            return f"{days} days"
+        elif days < 365:
+            months = days // 30
+            return f"{months} month{'s' if months > 1 else ''}"
+        else:
+            years = days // 365
+            remaining_months = (days % 365) // 30
+            if remaining_months > 0:
+                return f"{years}y {remaining_months}m"
+            return f"{years} year{'s' if years > 1 else ''}"
+    except:
+        return "Unknown"
+
+def show_main_banner_with_user(user=None):
+    try:
+        term_width = os.get_terminal_size().columns
+    except:
+        term_width = 80
+
+    banner_art = f"""{colors.SKY}{colors.BOLD}
+  sSSs    .S       S.    .S_sSSs      sSSSSs   .S_sSSs     .S_SSSs     .S_SSSs
+ d%%SP   .SS       SS.  .SS~YS%%b    d%%%%SP  .SS~YS%%b   .SS~SSSSS   .SS~SSSSS
+d%S'     S%S       S%S  S%S   `S%b  d%S'      S%S   `S%b  S%S   SSSS  S%S   SSSS
+S%|      S%S       S%S  S%S    S%S  S%S       S%S    S%S  S%S    S%S  S%S    S%S
+S&S      S&S       S&S  S%S    S&S  S&S       S%S    d*S  S%S SSSS%S  S%S SSSS%P
+Y&Ss     S&S       S&S  S&S    S&S  S&S       S&S   .S*S  S&S  SSS%S  S&S  SSSY
+ `S&&S   S&S       S&S  S&S    S&S  S&S       S&S_sdSSS   S&S    S&S  S&S    S&S
+   `S*S  S&S       S&S  S&S    S%S  S&S sSSs  S&S~YSY%b   S&S    S&S  S&S    S%S
+    l*S  S*b       d*S  S*S    S*S  S*b `S%%  S*S   `S%b  S*S    S&S  S*S    S&S
+   .S*P  S*S.     .S*S  S*S    S*S  S*S   S%  S*S    S%S  S*S    S*S  S*S    S*S
+ sSS*S    SSSbs_sdSSS   S*S    S*S   SS_sSSS  S*S    S&S  S*S    S*S  S*S SSSSP
+ YSS'      YSSP~YSSY    S*S    SSS    Y~YSSY  S*S    SSS  SSS    S*S  S*S  SSY
+                        SP                    SP                 SP   SP
+                        Y                     Y                  Y{colors.RESET}
+
+{colors.GOLD}{colors.BOLD}... CodeSunGrab Mega  (v3.0.2) | CodeSun | Code With Rafsun | (c)CodeSun(TM) | Messi ...{colors.RESET}
+"""
+    print(banner_art)
+
+    if user:
+        stats = get_user_stats(user)
+        full_name = user.get('name', 'N/A')
+        username = user.get('username', 'N/A')
+        if '@' in username:
+            username = username.split('@')[0]
+        email = mask_email(user.get('email', 'N/A'))
+        status = stats['status']
+        downloads = stats['total_downloads']
+        downloads_today = stats['downloads_today']
+        member_since = stats['member_since']
+        last_platform = stats['last_platform']
+        total_usage_time = stats['total_usage_time']
+        account_type = stats['account_type']
+        time_with_us = calculate_usage_time(user.get('createdAt', ''))
+
+        print()
+        print(f"  {colors.GOLD}{colors.BOLD}┌─── USER PROFILE {'─' * (term_width - 22)}┐{colors.RESET}")
+        print()
+        print(f"  {colors.MAGENTA}•••{colors.RESET} {colors.WHITE}{colors.BOLD}Name:{colors.RESET}          {colors.GOLD}{full_name}{colors.RESET}")
+        print(f"  {colors.CYAN}•••{colors.RESET} {colors.WHITE}{colors.BOLD}Username:{colors.RESET}      {colors.SKY_BLUE}@{username}{colors.RESET}")
+        print(f"  {colors.LIME}•••{colors.RESET} {colors.WHITE}{colors.BOLD}Email:{colors.RESET}         {colors.SKY_BLUE}{email}{colors.RESET}")
+        status_color = colors.GREEN if 'Verified' in status else colors.YELLOW
+        print(f"  {colors.PINK}•••{colors.RESET} {colors.WHITE}{colors.BOLD}Status:{colors.RESET}        {status_color}{status}{colors.RESET}")
+        type_color = colors.GOLD if account_type == 'Premium' else colors.WHITE
+        print(f"  {colors.ORANGE}•••{colors.RESET} {colors.WHITE}{colors.BOLD}Account Type:{colors.RESET}  {type_color}{account_type}{colors.RESET}")
+        print(f"  {colors.PURPLE}•••{colors.RESET} {colors.WHITE}{colors.BOLD}Member Since:{colors.RESET}  {colors.SKY_BLUE}{member_since}{colors.RESET}")
+        print(f"  {colors.RED}•••{colors.RESET} {colors.WHITE}{colors.BOLD}Time With Us:{colors.RESET}  {colors.GREEN}{time_with_us}{colors.RESET}")
+        print(f"  {colors.YELLOW}•••{colors.RESET} {colors.WHITE}{colors.BOLD}Downloads:{colors.RESET}     {colors.GOLD}{downloads}{colors.RESET}  {colors.DIM}(Today: {downloads_today}){colors.RESET}")
+        platform_color = colors.RED if last_platform.lower() == 'youtube' else colors.CYAN if last_platform.lower() == 'instagram' else colors.SKY_BLUE
+        print(f"  {colors.SKY_BLUE}•••{colors.RESET} {colors.WHITE}{colors.BOLD}Last Platform:{colors.RESET} {platform_color}{last_platform}{colors.RESET}")
+        print(f"  {colors.GREEN}•••{colors.RESET} {colors.WHITE}{colors.BOLD}Total Usage:{colors.RESET}   {colors.MAGENTA}{total_usage_time}{colors.RESET}")
+        print()
+        print(f"  {colors.GOLD}{colors.BOLD}└{'─' * (term_width - 6)}┘{colors.RESET}")
+        print()
+    else:
+        print()
+        print(f"  {colors.YELLOW}{colors.BOLD}┌─── USER PROFILE {'─' * (term_width - 22)}┐{colors.RESET}")
+        print()
+        print(f"  {colors.RED}•••{colors.RESET} {colors.WHITE}{colors.BOLD}Status:{colors.RESET}        {colors.YELLOW}Not Logged In{colors.RESET}")
+        print(f"  {colors.CYAN}•••{colors.RESET} {colors.WHITE}{colors.BOLD}Action:{colors.RESET}        {colors.SKY_BLUE}Please Signup or Login to continue{colors.RESET}")
+        print()
+        print(f"  {colors.GOLD}{colors.BOLD}└{'─' * (term_width - 6)}┘{colors.RESET}")
+        print()
+
+    app_name = APP_NAME if 'APP_NAME' in globals() and APP_NAME else "CodeSunGrab"
+    version_str = f"v{VERSION}" if 'VERSION' in globals() and VERSION else "v3.0.0"
+    edition_str = EDITION if 'EDITION' in globals() and EDITION else "Argentina Victory Edition"
+
+    print(f"  {colors.SKY_BLUE}{colors.BOLD}⚡ {app_name} {version_str}{colors.RESET}  {colors.DIM}|{colors.RESET}  {colors.WHITE}Powered by {colors.GOLD}CodeSun™{colors.RESET}  {colors.DIM}|{colors.RESET}  {colors.CYAN}{edition_str}{colors.RESET}")
+    print()
+
+    footer_lines = [
+        f"{colors.WHITE}{colors.BOLD}🇦🇷 Dedicated to Argentina football spirit and Lionel Messi legacy 🇦🇷{colors.RESET}",
+        f"{colors.DIM}(c) 2026 CodeSun. All Rights Reserved. | Developed by Mahedi Hasan Rafsun{colors.RESET}"
+    ]
+    for fline in footer_lines:
+        visible = strip_ansi(fline)
+        padding = max(0, (term_width - len(visible)) // 2)
+        print(' ' * padding + fline)
+
+def get_first_time_banner_art():
+    return f"""{colors.SKY}{colors.BOLD}
+.s5SSSs.                                .s5SSSs.
+      SS. .s5SSSs.  .s5SSSs.  .s5SSSs.        SS. .s    s.  .s    s.
+sS    `:;       SS.       SS.       SS. sS    `:;       SS.       SS.
+SS        sS    S%S sS    S%S sS    `:; SS        sS    S%S sSs.  S%S
+SS        SS    S%S SS    S%S SSSs.     `:;;;;.   SS    S%S SS `S.S%S
+SS        SS    S%S SS    S%S SS              ;;. SS    S%S SS  `sS%S
+SS        SS    `:; SS    `:; SS              `:; SS    `:; SS    `:;
+SS    ;,. SS    ;,. SS    ;,. SS    ;,. .,;   ;,. SS    ;,. SS    ;,.
+`:;;;;;:' `:;;;;;:' ;;;;;;;:' `:;;;;;:' `:;;;;;:' `:;;;;;:' :;    ;:'
+{colors.RESET}"""
+
+def get_signup_banner_art():
+    return f"""{colors.CYAN}{colors.BOLD}
+.s5SSSs.
+      SS. s.  .s5SSSs.  .s    s.      .s    s.  .s5SSSs.
+sS    `:; SS.       SS.       SS.           SS.       SS.
+SS        S%S sS    `:; sSs.  S%S     sS    S%S sS    S%S
+`:;;;;.   S%S SS        SS `S.S%S     SS    S%S SS .sS::'
+      ;;. S%S SS        SS  `sS%S     SS    S%S SS
+      `:; `:; SS   ``:; SS    `:;     SS    `:; SS
+.,;   ;,. ;,. SS    ;,. SS    ;,.     SS    ;,. SS
+`:;;;;;:' ;:' `:;;;;;:' :;    ;:'     `:;;;;;:' `:
+{colors.RESET}"""
+
+def get_login_banner_art():
+    return f"""{colors.WHITE}{colors.BOLD}
+.s
+          .s5SSSs.  .s5SSSs.  s.  .s    s.      .s    s.  .s5SSSs.  .s s.  s.
+sS              SS.       SS. SS.       SS.           SS.       SS.    SS. SS.
+SS        sS    S%S sS    `:; S%S sSs.  S%S     sSs.  S%S sS    S%S sS S%S S%S
+SS        SS    S%S SS        S%S SS `S.S%S     SS `S.S%S SSSs. S%S SS S%S S%S
+SS        SS    S%S SS        S%S SS  `sS%S     SS  `sS%S SS    S%S SS S%S S%S
+SS        SS    `:; SS   ``:; `:; SS    `:;     SS    `:; SS    `:; SS `:; `:;
+SS    ;,. SS    ;,. SS    ;,. ;,. SS    ;,.     SS    ;,. SS    ;,. SS ;,. ;,.
+`:;;;;;:' `:;;;;;:' `:;;;;;:' ;:' :;    ;:'     :;    ;:' :;    ;:' `:;;:'`::'
+{colors.RESET}"""
+
+def show_first_time_banner():
+    banner_art = get_first_time_banner_art()
+    footer = f"""
+{colors.WHITE}{colors.BOLD}
+Name           : SunGrab Mega v{VERSION}      GitHub     : CodeWithRafsun/CodeSungrab
+Version        : v{VERSION}                   Mail       : codewithrafsun@gmail.com
+Powered by     : CodeSun                      Portfolio  : codewithrafsun.vercel.app
+Developed by   : Mahedi Hasan Rafsun          Website    : CodeSungrab.vercel.app
+Social Media   : @codewithrafsun
+{colors.GOLD}{colors.BOLD}
+🇦🇷 {EDITION} 🇦🇷
+{colors.WHITE}
+Dedicated to Argentina football spirit and Lionel Messi legacy.
+{colors.SKY}
+(c) 2026 CodeSun. All Rights Reserved.
+{colors.RESET}
+"""
+    print(banner_art + footer)
+
+def show_signup_banner():
+    banner_art = get_signup_banner_art()
+    footer = f"""
+{colors.WHITE}{colors.BOLD}
+Name           : SunGrab Mega v{VERSION}      GitHub     : CodeWithRafsun/CodeSungrab
+Version        : v{VERSION}                   Mail       : codewithrafsun@gmail.com
+Powered by     : CodeSun                      Portfolio  : codewithrafsun.vercel.app
+Developed by   : Mahedi Hasan Rafsun          Website    : CodeSungrab.vercel.app
+Social Media   : @codewithrafsun
+{colors.GOLD}{colors.BOLD}
+🇦🇷 {EDITION} 🇦🇷
+{colors.WHITE}
+Dedicated to Argentina football spirit and Lionel Messi legacy.
+{colors.SKY}
+(c) 2026 CodeSun. All Rights Reserved.
+{colors.RESET}
+"""
+    print(banner_art + footer)
+
+def show_login_banner():
+    banner_art = get_login_banner_art()
+    footer = f"""
+{colors.WHITE}{colors.BOLD}
+Name           : SunGrab Mega v{VERSION}      GitHub     : CodeWithRafsun/CodeSungrab
+Version        : v{VERSION}                   Mail       : codewithrafsun@gmail.com
+Powered by     : CodeSun                      Portfolio  : codewithrafsun.vercel.app
+Developed by   : Mahedi Hasan Rafsun          Website    : CodeSungrab.vercel.app
+Social Media   : @codewithrafsun
+{colors.GOLD}{colors.BOLD}
+🇦🇷 {EDITION} 🇦🇷
+{colors.WHITE}
+Dedicated to Argentina football spirit and Lionel Messi legacy.
+{colors.SKY}
+(c) 2026 CodeSun. All Rights Reserved.
+{colors.RESET}
+"""
+    print(banner_art + footer)
+
+def show_banner():
+    show_main_banner_with_user(None)
+
+def show_banner_with_user(user):
+    show_main_banner_with_user(user)
